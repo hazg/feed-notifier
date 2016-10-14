@@ -12,6 +12,25 @@
 
   "options_page": "./templates/options.html",
   "permissions": [
-    "storage"
-  ]
+    "storage",
+    "notifications",
+    "tabs",
+    "alarms",
+    "http://*/",
+    "https://*/"
+  ],
+
+// "content_security_policy": "script-src 'self' http://*/; object-src 'self'",
+
+"content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["packages/jquery/jquery.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["custom/js/background.js", "packages/jquery/jquery.js"],
+    "persistent": false
+  }
 }
