@@ -8,8 +8,9 @@ function callAjax(rssUrl) {
             $(xml).find("item").each(function() {
                 var title = $(this).find("title").text();
                 var link = $(this).find("link").text();
-
-                responseList.push({ title, link });
+                var description = $(this).find("description").text();
+                
+                responseList.push({ title, link, description });
 
             });
             if (responseList.length > 0) {
@@ -18,7 +19,9 @@ function callAjax(rssUrl) {
                 $(xml).find("entry").each(function() {
                     var title = $(this).find("title").text();
                     var link = $(this).find("link").attr("href");
-                    responseList.push({ title, link });
+                    var description = $(this).find("description").text();
+                    
+                    responseList.push({ title, link, description });
 
                 });
                 chrome.storage.local.set({ "rssFeedList": responseList });
