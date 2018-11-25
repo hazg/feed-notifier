@@ -3,7 +3,7 @@ $(function(){
             $.each(items.rssFeedList, function( index, value ) {
                 var nItem = "<li class='list-group-item'><a href='#'>" +
                 value["title"] + "</a><div style='display: none;font-size:x-small; padding-bottom:5px;' class='description'>+"+
-                value["description"]+"+<br /><a style='float:right;' href='" + value["link"] + "'>show</a></div></li>";
+                value["description"]+"+<br /><a target='_blank' style='float:right;' href='" + value["link"] + "'>show</a></div></li>";
                 $("#rssList").append(nItem);
             });
 
